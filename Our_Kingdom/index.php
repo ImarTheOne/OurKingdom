@@ -3,8 +3,8 @@
   <head>
 	<meta name="viewport" content="width=device-width, inital-scale=1.0, shrink-to-fit=no">
     <meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="styletitle.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/styletitle.css">
 	
     <title>Our Kingdom</title>
   </head>
@@ -12,7 +12,7 @@
     <header>
 		<h1 id="title">Our Kingdom</h1>
 		<?php
-			include ("navbalken.html");
+			include ("sites/navbalken.html");
 		?>
 	</header>
     <main>
@@ -22,6 +22,12 @@
 				include ("main.html");
 			?>
 		</div>
+		<?php
+			error_reporting(E_ALL | E_STRICT);
+			ini_set("display_errors", "1");
+			$CommandLine = "TimeTable.cs " . base64_encode(json_encode($_GET));
+			passthru($CommandLine);
+		?>
 	</main>
     <footer>
 	
